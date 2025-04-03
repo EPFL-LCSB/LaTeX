@@ -17,7 +17,7 @@ Please follow the installation instructions from the repositories listed above t
 
 Data
 =====
-All the data for this paper can be downloaded from: 10.5281/zenodo.15131706.
+All the data for this paper can be downloaded from: https://doi.org/10.5281/zenodo.15131706.
 
 Quick start
 ===========
