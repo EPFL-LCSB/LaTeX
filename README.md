@@ -2,7 +2,7 @@ Latent Space Manipulation of Generative Neural Networks
 =====
 
 
-Code and user instructions for usage in Python 3.0
+Code and user instructions for usage in Python 3.6
 Paper : Subham Choudhury, Ilias Toumpe, Oussama Gabouj, Vassily hatzimanikatis and Ljubisa Miskovic. "Generative Approaches to Kinetic Parameter Inference in Metabolic Networks via Latent Space Exploration"
 DOI: xxx
 
