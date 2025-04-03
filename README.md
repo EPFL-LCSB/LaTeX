@@ -8,27 +8,7 @@ DOI: xxx
 
 Requirements
 ------------
-
-You will need to have `Git-LFS <https://git-lfs.github.com/>`_ in order to properly download some binary files:
-
-.. code:: bash
-
-    git clone https://github.com/EPFL-LCSB/pytfa.git /path/to/pytfa
-    cd /path/to/pytfa
-    git lfs install
-    git lfs pull
-
-**This module was developed in Python 3.5, and it is recommended to run Python 3.5 
-to run commercial solvers such as Gurobi and CPLEX.**
-Other Python versions (2.7, 3.4) should also work (see the `CI builds <https://travis-ci.org/EPFL-LCSB/pytfa>`_)
-
-
-This module requires
-`COBRApy <https://github.com/opencobra/cobrapy/>`_, as well as
-`optlang <https://github.com/biosustain/optlang>`_ to work
-properly. The installer should take care of that for you. You might also
-want to install a dedicated solver. GLPK, CPLEX and Gurobi are
-supported.
+All the code implemented in these studies utilizes the ReKinDLE environment (https://github.com/EPFL-LCSB/rekindle, https://gitlab.com/EPFL-LCSB/rekindle ) and RENAISSANCE toolbox (https://github.com/EPFL-LCSB/RENAISSANCE, https://gitlab.com/EPFL-LCSB/renaissance). Please follow the installation instructions from these repositories first. 
 
 Container-based install
 -----------------------
