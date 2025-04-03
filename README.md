@@ -8,164 +8,27 @@ DOI: xxx
 
 Requirements
 ------------
-All the code implemented in these studies utilizes the ReKinDLE environment (https://github.com/EPFL-LCSB/rekindle, https://gitlab.com/EPFL-LCSB/rekindle ) and RENAISSANCE toolbox (https://github.com/EPFL-LCSB/RENAISSANCE, https://gitlab.com/EPFL-LCSB/renaissance). Please follow the installation instructions from these repositories first. 
+All the code implemented in these studies utilizes the ReKinDLE environment (https://github.com/EPFL-LCSB/rekindle, https://gitlab.com/EPFL-LCSB/rekindle ) and RENAISSANCE toolbox (https://github.com/EPFL-LCSB/RENAISSANCE, https://gitlab.com/EPFL-LCSB/renaissance). 
 
-Container-based install
+Installation
 -----------------------
+Please follow the installation instructions from the repositories listed above to install ReKinDLE and RENAISSANCE. 
 
-You might want to use this program inside of a container. The
-|docker|_
-subfolder has all the necessary information and source files to set it
-up.
 
-.. |docker| replace:: ``docker/``
-.. _docker: https://github.com/EPFL-LCSB/pytfa/tree/master/docker
-
-Setup
+Data
 =====
-
-*This step is not required if you're using the container, which bundles all this.*
-
-You can install this module with ``pip``:
-
-*For Python 3, you might have to use* ``pip3`` *instead of* ``pip``
-
-.. code:: bash
-
-    pip3 install pytfa
-
-or from source
-
-.. code:: bash
-
-    git clone https://github.com/EPFL-LCSB/pytfa.git /path/to/pytfa
-    pip3 install -e /path/to/pytfa
+All the data for this paper can be downloaded from: xxx
 
 Quick start
 ===========
 
-Three tutorial files detail thoroughly normal usages of the pytfa
-package. They can be found at:
+To implement latent space manipulation, the user only needs the functionality of custom input and transformations of the latent noise input in REKINDLE and RENAISSANCE. This has already been implemented in the RENAISSANCE code as detailed in
+https://github.com/EPFL-LCSB/RENAISSANCE/blob/master/docker/work/1-renaissance.py and https://github.com/EPFL-LCSB/RENAISSANCE/blob/master/docker/work/2-load_and_generate.py.  A REKINDLE implementation can be found as REKINDLE_latent.py in this repository. Download all the data in the same directory from the link above.
 
-::
-
-    pytfa
-    └── tutorials
-        ├── figure_paper.py
-        ├── tutorial_basics.py
-        └── tutorial_sampling.py
-
-More information can be found
-`here <http://pytfa.readthedocs.io/en/latest/quickstart.html>`__.
-
-Documentation
+Notebooks
 =============
 
-Documentation is hosted at `Read the
-Docs <http://pytfa.readthedocs.io/en/latest/index.html>`__
-
-Alternatively you can also generate the docs locally.
-
-Make sure `sphinx <https://www.sphinx-doc.org/en/stable/>`__ is
-installed, and install as well `the
-theme <https://github.com/rtfd/sphinx_rtd_theme>`__ (this is already
-bundled with the container):
-
-::
-
-    pip install sphinx sphinx-rtd-theme
-
-You can then generate the documentation with this command:
-
-::
-
-    cd work/pytfa/doc && make html
-
-The resulting HTML files will be located in ``work/pytfa/doc/_build``.
-
-Testing the code
-----------------
-
-We recommend using the `Docker
-container <https://github.com/EPFL-LCSB/pytfa/tree/master/docker>`__ for
-testing the code, as it comes with everything bundled.
-
-Install `pytest <https://docs.pytest.org/en/latest/>`__ if you don't
-already have it (``pip install pytest``, already included in the
-container), then start the tests with the ``pytest`` command.
-
-Usage
-=====
-
-First, create your COBRApy model. Make sure to define the additional
-values required by pyTFA, as said in the "Models" page of the
-documentation.
-
-If you already have a Matlab model with thermodynamic data, you might
-want to use ``pytfa.io.import_matlab_model``. Otherwise, have a look at
-the `COBRApy
-documentation <https://cobrapy.readthedocs.io/en/latest/io.html#MATLAB>`__,
-then add the required properties.
-
-If you're using a specific solver, don't forget to tell COBRApy about it
-by setting the ``solver`` property of your model to the name of your
-solver. See the `COBRApy
-documentation <https://cobrapy.readthedocs.io/en/latest/solvers.html>`__
-for more information about this.
-
-Thermodynamic database
-----------------------
-
-You also need a thermodynamic database. Use ``thermoDBconverter.py`` if
-you have a thermodynamic database from Matlab you wish to import to
-Python.
-
-Thermodynamic databases are stored in ``.thermodb`` files and can be
-easily loaded with ``pytfa.io.load_thermoDB``.
-
-Example script
---------------
-
-Here is an example script :
-
-.. code:: python
-
-    import pytfa
-    from pytfa.io import import_matlab_model, load_thermoDB
-
-
-    cobra_model = import_matlab_model('../models/small_yeast.mat')
-
-    thermo_data = load_thermoDB('../data/thermo_data.thermodb')
-
-    mytfa = pytfa.ThermoModel(thermo_data, cobra_model)
-    mytfa.solver = 'optlang-cplex'
-
-    ## TFA conversion
-    mytfa.prepare()
-    mytfa.convert()
-
-    ## Info on the model
-    mytfa.print_info()
-
-    ## Optimality
-    tfa_solution = mytfa.optimize()
-
-.. |PyPI| image:: https://img.shields.io/pypi/v/pytfa.svg
-   :target: https://pypi.org/project/pytfa/
-.. |Documentation Status| image:: https://readthedocs.org/projects/pytfa/badge/?version=latest
-   :target: http://pytfa.readthedocs.io/en/latest/?badge=latest
-.. |license| image:: http://img.shields.io/badge/license-APACHE2-blue.svg
-   :target: https://github.com/EPFL-LCSB/pytfa/blob/master/LICENSE.txt
-.. |Build Status| image:: https://travis-ci.com/EPFL-LCSB/pytfa.svg?branch=master
-   :target: https://travis-ci.com/EPFL-LCSB/pytfa
-.. |Codecov| image:: https://img.shields.io/codecov/c/github/EPFL-LCSB/pytfa.svg
-   :target: https://codecov.io/gh/EPFL-LCSB/pytfa
-.. |Codacy branch grade| image:: https://img.shields.io/codacy/grade/d8fd67ee134d46a69115c9b39c19be26/master.svg
-   :target: https://www.codacy.com/app/realLCSB/pytfa
-.. |Code climate| image:: https://img.shields.io/codeclimate/github/EPFL-LCSB/pytfa.svg
-   :target: https://codeclimate.com/github/EPFL-LCSB/pytfa
-   
+Once the data has been downloaded, marked JuPyter Notebooks have been made available for conducting all the analyses and the for generating all the figures in the manuscript and supplementary material.   
    
 License
 ========
