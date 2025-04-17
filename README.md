@@ -8,7 +8,7 @@ DOI: xxx
 
 Requirements
 ------------
-All the code implemented in these studies utilizes the ReKinDLE environment (https://github.com/EPFL-LCSB/rekindle, https://gitlab.com/EPFL-LCSB/rekindle ) and RENAISSANCE toolbox (https://github.com/EPFL-LCSB/RENAISSANCE, https://gitlab.com/EPFL-LCSB/renaissance). 
+All the code implemented in these studies utilizes the ReKinDLE environment (https://github.com/EPFL-LCSB/rekindle, https://gitlab.com/EPFL-LCSB/rekindle ) and RENAISSANCE toolbox (https://github.com/EPFL-LCSB/RENAISSANCE). 
 
 Installation
 -----------------------
